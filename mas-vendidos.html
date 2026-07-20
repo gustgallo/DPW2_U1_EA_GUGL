@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Vendidos | Villa Olímpica</title>
+
+    <!-- Fuentes Oficiales de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Hoja de Estilos CSS Puro -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Encabezado Fijo & Navegación Responsiva -->
+    <header class="navbar-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                Villa <span class="accent">Olímpica</span>
+            </a>
+
+            <!-- Navegación Principal -->
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="#" class="nav-link">Artículos</a></li>
+                    <li><a href="#" class="nav-link">Promociones</a></li>
+                    <li><a href="mas-vendidos.html" class="nav-link active">Más vendidos</a></li>
+                    <li><a href="#" class="nav-link">Facturación</a></li>
+                    <li><a href="#" class="nav-link">Sucursales</a></li>
+                </ul>
+            </nav>
+
+            <!-- Acciones de Encabezado (Buscador y Carrito) -->
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar productos...">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                </div>
+                <button class="icon-btn" aria-label="Carrito de compras">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span class="cart-badge">0</span>
+                </button>
+                <button class="icon-btn" aria-label="Mi Cuenta">
+                    <span class="material-symbols-outlined">person</span>
+                </button>
+
+                <!-- Botón de Menú Hamburguesa para Dispositivos Móviles -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal: Sección de Más Vendidos -->
+    <main class="main-canvas">
+        <div class="container">
+            <!-- Encabezado de la Sección -->
+            <section class="page-header">
+                <div class="page-header-banner">
+                    <h1 class="page-title">Más Vendidos</h1>
+                    <span class="page-subtitle">Equipamiento de Alto Rendimiento</span>
+                </div>
+                <p class="page-description">
+                    Selección exclusiva de los productos más solicitados por atletas profesionales y entusiastas del deporte. Rendimiento garantizado por las marcas líderes a nivel mundial.
+                </p>
+            </section>
+
+            <!-- Catálogo de Productos Responsivo (3 columnas en escritorio, 2 en tablet, 1 en móvil) -->
+            <section class="product-grid">
+
+                <!-- Producto 1: Nike Air Zoom Pegasus -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAZj09Hw25ddjVSTRJiSQ5htEdIk8ivm3yKpYNog_No8CD-FWMeQovrwgQUleZygSZms5WMRy82JWM_F_k5b4Az0u9OvnI06kPbGerbbUM1VWfVXnkiNIC8CfDDVbnom4Z8_sbaCGAYtiYt96Zb9JDgYxaSoSCWYY2j-NeMbdrj-zDGZVL-Mz3Gp7727HWtzg4ZkGGPKyUC9-vL8D_G1KJWsfNF3r2vmQEmHZwvhPmqL-ruESo8CFv" alt="Nike Air Zoom Pegasus">
+                        <span class="product-chip">Best Seller</span>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Nike Air Zoom Pegasus</h3>
+                        <p class="product-desc">
+                            Amortiguación reactiva y soporte superior. Diseñada para corredores que buscan velocidad y comodidad en largas distancias.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$3,299 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2: Wilson Pro Staff 97 -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBngtP6i_AzEWjEe1RYNs7RO7VHHNAmvKa0wgKCaOZ3V5gWChoz8eNao4ZjngMBO8xEkjZD8VTaoP47anvpmNaiFjZA3IFnKTlFBOohhLURQpGW7iyKESemTf035a1Jbi1gBL4MofixxmkuGnHk9DZP35BfvjHbXh_gfg_nwaN3wp2NFusfNAGMluLMktnqCmDPlmYZ5JDRmO-SwAkA_V1d_k7C5AWJZg0d8OhbuX4QzQA4FeKSljCa" alt="Wilson Pro Staff 97">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Wilson Pro Staff 97</h3>
+                        <p class="product-desc">
+                            Precisión legendaria para el jugador agresivo. Estabilidad mejorada y sensación clásica para un control absoluto en la cancha.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$5,450 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3: Adidas World Cup Official -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOW68EYq8N4ffn105JEKskcv0ZpwmGvEBObCX19ImrM-snlLQPnUWO_VYF0OwcBuWk__ThlnvhdYxKHCOIsXE2QLVTMg2vqBBjVWgJQBBSaA8j4Q8epXlPL88ScdERai1Ku3rBxc4vofsZeVjNFLGaZn2mlxuaR1UBLKzWdtkjIPRQEg2_z9KJ5Kyjq_18w9Qb_CThg3-2U25W2SDc0HiH4Vb_P6KMa1xDA1dUpCDiFIflaps9aKxF" alt="Adidas World Cup Official">
+                        <span class="product-chip pro">Profesional</span>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Adidas World Cup Official</h3>
+                        <p class="product-desc">
+                            Balón oficial de competición con tecnología de unión térmica para una trayectoria predecible y menor absorción de agua.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$1,899 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4: Garmin Forerunner 255 -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1LkLCf9W2DKwrZ6DLGe4c1gnQ6eaimepfDT5Rj9rVDJLVw2IhOrHUU6DvSdfH-1tfSRC6ssb7jparqUC2EzMq9U9xMFJOB667nsv7SjuhQBJeVp6GnPqgil8KDw0TfOktjQOJcXUKv8_z9NfA-UQgGbrujkhdtuHtQ2r54ciwgYo9HasDq5MvRuc7Vg9f9QK8ibl6gAapdNjuSdWESxjSg2EBqDiQkYvKAMJNfyol0nD_JJWjz8Kl" alt="Garmin Forerunner 255">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Garmin Forerunner 255</h3>
+                        <p class="product-desc">
+                            Reloj inteligente de running con GPS avanzado, métricas de recuperación y sugerencias de entrenamiento diario.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$7,200 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 5: UA Tech 2.0 Tee -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuANXaeLjsCu2RbKxLjoSbE2mQsC561NsM1NTbkQWTiQaWCHbWL5Mmb-wv_310CvsCufHliO6hAiRbMrchGk3s91aXKI1ch8ntuqU0MFcmF4keuE6dEKyDvy8Gb47J8c4FJTOruqNyDHo3tnpcNbyQYcwT1EKQAdCBBjmK1VXaCOkC6k-zIh9bNAwvTgeTZFdgnCRa_GiL3S1A7qhR_vfeKeMDC_VC50hlTu7OyJJVH8xaXc8HcCtX6J" alt="UA Tech 2.0 Tee">
+                        <span class="product-chip drifit">Dri-Fit</span>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">UA Tech 2.0 Tee</h3>
+                        <p class="product-desc">
+                            Tejido de secado rápido, ultrasuave y con una sensación más natural. Ideal para entrenamientos de alta intensidad.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$649 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 6: Spalding Precision TF-1000 -->
+                <article class="product-card">
+                    <div class="product-thumb">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCewyeJEAz_pniPI7oKqGHiAYpLsdDzWuqNe3WgpXQnlIMonGjTzjGP1bspeUdqwGj2r3Gsy1P1ydDRvZ02mGSJ3zk5kxYQ1O_GzS1XOMjXrggmgVXddk-gxAsCVGWmV7v7TX-HHBNofQnZCcKOWV1KspGdycAAnU6yQr_k1pQJ_ZCNWHuqlPPOaor-IoD57nusIJFKyLyMGnoxTTrbelHxm7wkAxo5__ZN57-vSLGW_jQlQUMI6ZHG" alt="Spalding Precision TF-1000">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Spalding Precision TF-1000</h3>
+                        <p class="product-desc">
+                            El estándar para baloncesto de interior. Agarre excepcional y gestión de la humedad para un rendimiento de élite.
+                        </p>
+                        <div class="product-footer">
+                            <span class="product-price">$1,450 MXN</span>
+                            <button class="btn-add-cart">Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Columna 1: Ubicación y Contacto -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Ubicación y Contacto</h4>
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <span>Calle Deportiva 123, Ciudad de México, CDMX.</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined">phone</span>
+                        <span>+52 (55) 1234-5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="material-symbols-outlined">mail</span>
+                        <span>contacto@villaolimpica.com</span>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Identidad & Boletín -->
+                <div class="footer-col" style="align-items: center; text-align: center;">
+                    <div class="footer-brand">Villa Olímpica</div>
+                    <p class="footer-text">
+                        © 2024 Villa Olímpica. Todos los derechos reservados.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Boletín de atletas..." required>
+                        <button type="submit" aria-label="Suscribirse">
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Columna 3: Redes Sociales y Enlaces Legal -->
+                <div class="footer-col" style="align-items: flex-end;">
+                    <h4 class="footer-title">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><span class="material-symbols-outlined" style="font-size: 28px;">public</span></a>
+                        <a href="#" aria-label="Instagram"><span class="material-symbols-outlined" style="font-size: 28px;">photo_camera</span></a>
+                        <a href="#" aria-label="Twitter"><span class="material-symbols-outlined" style="font-size: 28px;">share</span></a>
+                    </div>
+                    <div class="footer-links-inline">
+                        <a href="#">Términos</a>
+                        <a href="#">Privacidad</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Villa Olímpica Athletics - Sitio Web Oficial desarrollado con HTML5 y CSS3 puro responsivo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript Vainilla -->
+    <script src="js/main.js"></script>
+</body>
+</html>

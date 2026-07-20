@@ -1,0 +1,1060 @@
+/* ==========================================================================
+   Villa Olímpica Athletics - Hoja de Estilos CSS3 (Sin Frameworks)
+   Diseño Responsivo con Media Queries para Móvil, Tablet y Escritorio
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables Globales y Sistema de Diseño (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colores Principales */
+  --color-primary: #0D1C32;
+  --color-primary-dark: #0A192F;
+  --color-on-primary: #FFFFFF;
+  --color-on-primary-muted: rgba(255, 255, 255, 0.85);
+
+  /* Colores Secundarios (Acentos & CTAs) */
+  --color-secondary: #FF5722;
+  --color-secondary-hover: #E04818;
+  --color-secondary-light: rgba(255, 87, 34, 0.1);
+  --color-on-secondary: #FFFFFF;
+
+  /* Colores Terciarios & Superficies */
+  --color-tertiary: #2180FF;
+  --color-tertiary-bg: #D8E2FF;
+  --color-background: #F8F9FA;
+  --color-surface: #FFFFFF;
+  --color-surface-container: #EDEEEF;
+  --color-surface-alt: #F3F4F5;
+
+  /* Texto y Bordes */
+  --color-text-main: #191C1D;
+  --color-text-muted: #44474D;
+  --color-border: #E1E3E4;
+  --color-border-dark: #75777E;
+
+  /* Tipografía */
+  --font-headline: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Contenedores y Espaciados */
+  --container-max-width: 1280px;
+  --gutter-desktop: 24px;
+  --gutter-mobile: 16px;
+  --header-height: 80px;
+
+  /* Radios de borde */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Sombras y Transiciones */
+  --shadow-sm: 0 1px 3px rgba(13, 28, 50, 0.08);
+  --shadow-md: 0 4px 12px rgba(13, 28, 50, 0.12);
+  --shadow-lg: 0 10px 25px rgba(13, 28, 50, 0.15);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset y Estilos Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color: var(--color-text-main);
+  background-color: var(--color-background);
+}
+
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Material Icons Helper */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-desktop);
+  padding-right: var(--gutter-desktop);
+}
+
+/* --------------------------------------------------------------------------
+   3. Encabezado y Navegación (Header & Navigation)
+   -------------------------------------------------------------------------- */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.navbar-header.scrolled {
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-primary-dark);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.brand-logo {
+  font-family: var(--font-headline);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-on-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo span.accent {
+  color: var(--color-secondary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-on-primary-muted);
+  padding: 6px 0;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-secondary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-secondary);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 8px 36px 8px 14px;
+  color: var(--color-on-primary);
+  font-size: 0.875rem;
+  width: 210px;
+  transition: var(--transition-fast);
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-box input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--color-secondary);
+  width: 240px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  right: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  font-size: 20px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-on-primary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.icon-btn:hover {
+  color: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón Hamburguesa para Móvil */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-on-primary);
+  cursor: pointer;
+  padding: 6px;
+}
+
+.mobile-menu-btn .material-symbols-outlined {
+  font-size: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Contenido Principal & Secciones
+   -------------------------------------------------------------------------- */
+.main-canvas {
+  margin-top: calc(var(--header-height) + 24px);
+  margin-bottom: 64px;
+  flex: 1;
+}
+
+/* Banner de Notificación Toast */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-secondary);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2000;
+  transform: translateY(120px);
+  opacity: 0;
+  transition: var(--transition-smooth);
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* --- SECCIÓN HERO (PÁGINA DE INICIO) --- */
+.hero-section {
+  display: grid;
+  grid-template-columns: 3fr 5fr 4fr;
+  gap: var(--gutter-desktop);
+  align-items: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Columna 1: Logo Tienda */
+.hero-logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+.hero-logo-box img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: var(--transition-smooth);
+}
+
+.hero-logo-box:hover img {
+  transform: scale(1.03);
+}
+
+/* Columna 2: Descripción Profesional */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary);
+  border: 1px solid rgba(255, 87, 34, 0.25);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  width: fit-content;
+}
+
+.hero-title {
+  font-family: var(--font-headline);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.hero-title .highlight {
+  color: var(--color-secondary);
+}
+
+.hero-description-lead {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.hero-description-sub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Botones Estándar */
+.btn-primary {
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 26px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  transform: translateY(-2px);
+}
+
+/* Columna 3: Fachada de la tienda */
+.hero-media {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  min-height: 320px;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-media:hover img {
+  transform: scale(1.08);
+}
+
+.hero-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 28, 50, 0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: var(--color-on-primary);
+}
+
+.hero-media-overlay .location-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-secondary);
+}
+
+.hero-media-overlay .location-title {
+  font-family: var(--font-headline);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* --- SECCIÓN BENTO / VALORES (PÁGINA DE INICIO) --- */
+.bento-section {
+  margin-top: 48px;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter-desktop);
+}
+
+.bento-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bento-card:hover {
+  border-color: var(--color-secondary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.bento-icon {
+  color: var(--color-secondary);
+  font-size: 36px !important;
+}
+
+.bento-card h3 {
+  font-family: var(--font-headline);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.bento-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* --- SECCIÓN PÁGINA MÁS VENDIDOS --- */
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-header-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 4px solid var(--color-primary);
+  padding-bottom: 12px;
+}
+
+.page-title {
+  font-family: var(--font-headline);
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.page-subtitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  letter-spacing: 0.08em;
+}
+
+.page-description {
+  margin-top: 16px;
+  max-width: 700px;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Grilla de Productos (3 columnas en escritorio) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter-desktop);
+}
+
+/* Tarjeta de Producto */
+.product-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-fast);
+}
+
+.product-card:hover {
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.product-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-thumb img {
+  transform: scale(1.06);
+}
+
+.product-chip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.product-chip.pro {
+  background-color: var(--color-primary);
+}
+
+.product-chip.drifit {
+  top: auto;
+  left: auto;
+  bottom: 12px;
+  right: 12px;
+  background-color: var(--color-tertiary-bg);
+  color: var(--color-primary);
+}
+
+.product-details {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  flex-grow: 1;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.product-price {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.btn-add-cart {
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  border: none;
+  padding: 8px 18px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-add-cart:hover {
+  background-color: var(--color-secondary-hover);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Pie de Página (Footer)
+   -------------------------------------------------------------------------- */
+.footer-main {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter-desktop);
+  margin-bottom: 36px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-on-primary);
+}
+
+.footer-brand {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-on-primary);
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: var(--color-on-primary-muted);
+  line-height: 1.5;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--color-on-primary-muted);
+}
+
+.contact-item .material-symbols-outlined {
+  color: var(--color-secondary);
+}
+
+/* Formulario Newsletter */
+.newsletter-form {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 6px;
+  margin-top: 8px;
+}
+
+.newsletter-form input {
+  background: transparent;
+  border: none;
+  color: var(--color-on-primary);
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form button {
+  background: transparent;
+  border: none;
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.newsletter-form button:hover {
+  color: var(--color-on-primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.social-links a {
+  color: var(--color-on-primary-muted);
+  transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+  color: var(--color-secondary);
+}
+
+.footer-links-inline {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--color-on-primary-muted);
+  margin-top: 12px;
+}
+
+.footer-links-inline a:hover {
+  color: var(--color-secondary);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* ==========================================================================
+   6. MEDIA QUERIES (ADAPTABILIDAD RESPONSIVA A 3 TAMAÑOS DE PANTALLA)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   DISPOSITIVO 1: PANTALLAS MÓVILES (Hasta 767px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  :root {
+    --header-height: 68px;
+    --gutter-desktop: 16px;
+  }
+
+  .container {
+    padding-left: var(--gutter-mobile);
+    padding-right: var(--gutter-mobile);
+  }
+
+  /* Mostrar Botón de Menú Hamburguesa */
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Menú de Navegación Oculto por defecto en Móvil */
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary-dark);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 18px;
+    border-bottom: 2px solid var(--color-secondary);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+    z-index: 999;
+  }
+
+  /* Menú Móvil Desplegado */
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    width: 100%;
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .search-box {
+    display: none; /* Se oculta o simplifica en teléfonos móviles */
+  }
+
+  /* Adaptación Hero a 1 Columna en Móvil */
+  .hero-section {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .hero-logo-box {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .badge-tag {
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-description-lead {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary, .btn-outline {
+    width: 100%;
+  }
+
+  .hero-media {
+    min-height: 240px;
+  }
+
+  /* Bento Grid a 1 Columna */
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Página Más Vendidos Header */
+  .page-header-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  /* Grilla de Productos a 1 Columna en Móvil */
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Footer a 1 Columna */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-links-inline {
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DISPOSITIVO 2: TABLETAS (768px a 1024px)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .search-box input {
+    width: 140px;
+  }
+
+  .search-box input:focus {
+    width: 170px;
+  }
+
+  /* Hero Adaptado en Tablet */
+  .hero-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 28px;
+  }
+
+  .hero-logo-box {
+    grid-column: span 2;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* Bento Grid a 2 Columnas */
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Grilla de Productos a 2 Columnas en Tablet */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Footer a 3 Columnas compactas */
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   DISPOSITIVO 3: PANTALLAS GRANDES / ESCRITORIO (1025px en adelante)
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1025px) {
+  .mobile-menu-btn {
+    display: none; /* Asegura que el botón hamburguesa esté oculto en escritorio */
+  }
+
+  .nav-links {
+    display: flex !important;
+  }
+}
