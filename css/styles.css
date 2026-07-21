@@ -1,11 +1,4 @@
-/* ==========================================================================
-   Villa Olímpica Athletics - Hoja de Estilos CSS3 (Sin Frameworks)
-   Diseño Responsivo con Media Queries para Móvil, Tablet y Escritorio
-   ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. Variables Globales y Sistema de Diseño (Design Tokens)
-   -------------------------------------------------------------------------- */
 :root {
   /* Colores Principales */
   --color-primary: #0D1C32;
